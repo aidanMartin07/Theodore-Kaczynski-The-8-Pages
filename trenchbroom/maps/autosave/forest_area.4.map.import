@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://chuhf4b7db8dw"
+path="res://.godot/imported/forest_area.4.map-74552af0f5c1ab01bc8188e967ff06c9.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/autosave/forest_area.4.map"
+dest_files=["res://.godot/imported/forest_area.4.map-74552af0f5c1ab01bc8188e967ff06c9.tres"]
+
+[params]
+

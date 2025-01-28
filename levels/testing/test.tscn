@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://m3ajtn4obmfa"]
+[gd_scene load_steps=11 format=4 uid="uid://m3ajtn4obmfa"]
 
 [ext_resource type="PackedScene" uid="uid://c51anmsk2psmn" path="res://entities/player/player.tscn" id="2_ddqpa"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_ghmcg"]
 [ext_resource type="Material" uid="uid://yd4j5gqg78wo" path="res://assets/textures/world/grass_64.tres" id="4_hfmsv"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_tu7um"]
 [ext_resource type="PackedScene" uid="uid://nfyi2an24n5i" path="res://levels/shack.tscn" id="5_5j7ud"]
+[ext_resource type="PackedScene" uid="uid://bibmidfwvcvvv" path="res://levels/computer_store.tscn" id="6_n2jd2"]
+[ext_resource type="PackedScene" uid="uid://cjlr5tjk47a3v" path="res://levels/university_1.tscn" id="7_emst2"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_rckuj"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_0fbm7"]
 _surfaces = [{
 "aabb": AABB(-32, 0.5, -32, 64, 0.125, 64),
 "attribute_data": PackedByteArray("AACAQQAAoL4AAIBBAACAvgAAgMEAAIC+AACAwQAAoL4AAIDBAACgvgAAgEEAAKC+AACAQQAAgL4AAIDBAACAvgAAgEEAAIDBAACAQQAAgEEAAIDBAACAQQAAgMEAAIDBAACAwQAAgMEAAIBBAACAwQAAgEEAAIBBAACAwQAAgEEAAIBBAACgvgAAgEEAAIC+AACAwQAAgL4AAIDBAACgvgAAgMEAAKC+AACAQQAAoL4AAIBBAACAvgAAgMEAAIC+"),
@@ -21,11 +23,11 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAwgAAID8AAADCAAAAwgAAAD8AAADCAAAAQgAAAD8AAADCAAAAQgAAID8AAADCAAAAwgAAID8AAADCAAAAwgAAID8AAABCAAAAwgAAAD8AAABCAAAAwgAAAD8AAADCAAAAQgAAAD8AAADCAAAAwgAAAD8AAADCAAAAwgAAAD8AAABCAAAAQgAAAD8AAABCAAAAQgAAID8AAADCAAAAQgAAID8AAABCAAAAwgAAID8AAABCAAAAwgAAID8AAADCAAAAQgAAID8AAADCAAAAQgAAAD8AAADCAAAAQgAAAD8AAABCAAAAQgAAID8AAABCAAAAwgAAID8AAABCAAAAQgAAID8AAABCAAAAQgAAAD8AAABCAAAAwgAAAD8AAABC/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
 }]
 
-[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_4rn01"]
+[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_bp6a6"]
 vertices = PackedVector3Array(-32, 0.625, -32, -32, 0.5, -32, 32, 0.5, -32, 32, 0.625, -32, -32, 0.625, -32, -32, 0.625, 32, -32, 0.5, 32, -32, 0.5, -32, 32, 0.5, -32, -32, 0.5, -32, -32, 0.5, 32, 32, 0.5, 32, 32, 0.625, -32, 32, 0.625, 32, -32, 0.625, 32, -32, 0.625, -32, 32, 0.625, -32, 32, 0.5, -32, 32, 0.5, 32, 32, 0.625, 32, -32, 0.625, 32, 32, 0.625, 32, 32, 0.5, 32, -32, 0.5, 32)
 indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4q7j0"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ckbhc"]
 points = PackedVector3Array(-32, 0.625, -32, -32, 0.5, -32, 32, 0.5, -32, 32, 0.625, -32, -32, 0.625, 32, -32, 0.5, 32, 32, 0.5, 32, 32, 0.625, 32)
 
 [node name="World" type="Node3D"]
@@ -34,6 +36,7 @@ points = PackedVector3Array(-32, 0.625, -32, -32, 0.5, -32, 32, 0.5, -32, 32, 0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31521, 0)
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00780106, 0.0243535, 0.00909901)
 script = ExtResource("3_ghmcg")
 local_map_file = "res://trenchbroom/maps/forest_area.map"
 map_settings = ExtResource("4_tu7um")
@@ -42,13 +45,19 @@ map_settings = ExtResource("4_tu7um")
 collision_mask = 0
 
 [node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
-mesh = SubResource("ArrayMesh_rckuj")
+mesh = SubResource("ArrayMesh_0fbm7")
 
 [node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
-occluder = SubResource("ArrayOccluder3D_4rn01")
+occluder = SubResource("ArrayOccluder3D_bp6a6")
 
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_4q7j0")
+shape = SubResource("ConvexPolygonShape3D_ckbhc")
 
 [node name="Shack" parent="." instance=ExtResource("5_5j7ud")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28, 0.25, -16)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0.25, -16)
+
+[node name="ComputerStore" parent="." instance=ExtResource("6_n2jd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0101, 0.320001, -1.05168)
+
+[node name="University_1" parent="." instance=ExtResource("7_emst2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0.25, 15)

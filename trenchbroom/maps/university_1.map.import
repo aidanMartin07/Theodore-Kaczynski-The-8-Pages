@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://df8lks57cahia"
+path="res://.godot/imported/university_1.map-b42396a49d018c33270d6528dc44196f.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/university_1.map"
+dest_files=["res://.godot/imported/university_1.map-b42396a49d018c33270d6528dc44196f.tres"]
+
+[params]
+

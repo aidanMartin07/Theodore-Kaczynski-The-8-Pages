@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b4q75vjxbs4un"]
+
+[ext_resource type="Texture2D" uid="uid://dji1b84nvtv2y" path="res://assets/textures/world/carpet.jpg" id="1_g0voi"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.901961)
+albedo_texture = ExtResource("1_g0voi")
+metallic_specular = 0.0
+texture_filter = 2

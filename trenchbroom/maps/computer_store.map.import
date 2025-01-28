@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://gun56t6l30j5"
+path="res://.godot/imported/computer_store.map-2b67076a13b13f07ae0e2c69d77446b1.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/computer_store.map"
+dest_files=["res://.godot/imported/computer_store.map-2b67076a13b13f07ae0e2c69d77446b1.tres"]
+
+[params]
+

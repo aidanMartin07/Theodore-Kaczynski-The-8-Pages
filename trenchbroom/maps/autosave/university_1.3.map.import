@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dvdyxgc3p1aee"
+path="res://.godot/imported/university_1.3.map-4da4cc23c873af8e4fb88ecc1e093485.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/autosave/university_1.3.map"
+dest_files=["res://.godot/imported/university_1.3.map-4da4cc23c873af8e4fb88ecc1e093485.tres"]
+
+[params]
+
