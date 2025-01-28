@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dl8lagwelikvs"
+path="res://.godot/imported/shack.map-5cd2f427421750166eb851b9b57308da.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/shack.map"
+dest_files=["res://.godot/imported/shack.map-5cd2f427421750166eb851b9b57308da.tres"]
+
+[params]
+

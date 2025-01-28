@@ -1,0 +1,129 @@
+[gd_resource type="VisualShader" load_steps=15 format=3 uid="uid://brkvlcustumxr"]
+
+[ext_resource type="Texture2D" uid="uid://c8putkck4ylis" path="res://assets/textures/world/grass_texture.png" id="1_t5y7m"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_aumpe"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="Gradient" id="Gradient_e3ded"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1j4ee"]
+noise_type = 0
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q43cn"]
+color_ramp = SubResource("Gradient_e3ded")
+noise = SubResource("FastNoiseLite_1j4ee")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4n3fl"]
+texture = SubResource("NoiseTexture2D_q43cn")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ig5kg"]
+texture = ExtResource("1_t5y7m")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8qprf"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_g3678"]
+function = 1
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_lt8or"]
+constant = 0.5
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tmj84"]
+texture = ExtResource("1_t5y7m")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_joseb"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_2xcob"]
+function = 1
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_f0t67"]
+constant = 0.5
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2 : source_color;
+uniform sampler2D tex_frg_6 : source_color;
+uniform sampler2D tex_frg_11 : source_color;
+
+
+
+void fragment() {
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// FloatConstant:5
+	float n_out5p0 = 0.500000;
+
+
+// UVFunc:4
+	vec2 n_in4p2 = vec2(0.00000, 0.00000);
+	vec2 n_out4p0 = (n_out3p0 - n_in4p2) * vec2(n_out5p0) + n_in4p2;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out4p0);
+
+
+// Input:7
+	vec2 n_out7p0 = UV;
+
+
+// FloatConstant:9
+	float n_out9p0 = 0.500000;
+
+
+// UVFunc:8
+	vec2 n_in8p2 = vec2(0.00000, 0.00000);
+	vec2 n_out8p0 = (n_out7p0 - n_in8p2) * vec2(n_out9p0) + n_in8p2;
+
+
+// Texture2D:6
+	vec4 n_out6p0 = texture(tex_frg_6, n_out8p0);
+
+
+// Texture2D:11
+	vec4 n_out11p0 = texture(tex_frg_11, UV);
+
+
+// Mix:10
+	vec3 n_out10p0 = mix(vec3(n_out2p0.xyz), vec3(n_out6p0.xyz), vec3(n_out11p0.xyz));
+
+
+// Output:0
+	ALBEDO = n_out10p0;
+
+
+}
+"
+nodes/fragment/0/position = Vector2(380, 520)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ig5kg")
+nodes/fragment/2/position = Vector2(-282.729, 519.737)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_8qprf")
+nodes/fragment/3/position = Vector2(-1060, 580)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_g3678")
+nodes/fragment/4/position = Vector2(-640, 540)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatConstant_lt8or")
+nodes/fragment/5/position = Vector2(-1000, 760)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_tmj84")
+nodes/fragment/6/position = Vector2(-320, 940)
+nodes/fragment/7/node = SubResource("VisualShaderNodeInput_joseb")
+nodes/fragment/7/position = Vector2(-1100, 1000)
+nodes/fragment/8/node = SubResource("VisualShaderNodeUVFunc_2xcob")
+nodes/fragment/8/position = Vector2(-680, 960)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatConstant_f0t67")
+nodes/fragment/9/position = Vector2(-1040, 1180)
+nodes/fragment/10/node = SubResource("VisualShaderNodeMix_aumpe")
+nodes/fragment/10/position = Vector2(40, 760)
+nodes/fragment/11/node = SubResource("VisualShaderNodeTexture_4n3fl")
+nodes/fragment/11/position = Vector2(-340, 1260)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 0, 2, 0, 5, 0, 4, 1, 7, 0, 8, 0, 8, 0, 6, 0, 9, 0, 8, 1, 6, 0, 10, 1, 11, 0, 10, 2, 2, 0, 10, 0, 10, 0, 0, 0)

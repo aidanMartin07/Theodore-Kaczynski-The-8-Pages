@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c51anmsk2psmn"]
+
+[ext_resource type="Script" path="res://entities/player/player_body.gd" id="1_l04wq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_natwf"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wpf4s"]
+
+[node name="Player" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_l04wq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_natwf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_wpf4s")
+
+[node name="CameraHolder" type="Node3D" parent="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/CameraHolder/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722399, 0)
+light_energy = 4.0
+spot_range = 15.0
+spot_angle = 25.0
