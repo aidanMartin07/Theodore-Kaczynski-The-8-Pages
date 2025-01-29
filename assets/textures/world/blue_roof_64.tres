@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3ttg8jl33022"]
+
+[ext_resource type="Texture2D" uid="uid://jvl321w5iyog" path="res://assets/textures/world/blue_roof_64.png" id="1_pmycx"]
+
+[resource]
+albedo_texture = ExtResource("1_pmycx")
+metallic_specular = 0.0
+texture_filter = 2

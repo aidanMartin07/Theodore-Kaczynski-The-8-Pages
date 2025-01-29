@@ -26,7 +26,6 @@ shape = SubResource("CapsuleShape3D_wpf4s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/CameraHolder/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722399, 0)
 light_energy = 4.0
 spot_range = 15.0
 spot_angle = 25.0

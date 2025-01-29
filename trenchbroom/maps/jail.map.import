@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dqnaj5ydeh2vy"
+path="res://.godot/imported/jail.map-0d362725fa2b276d0378785f93d7378f.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/jail.map"
+dest_files=["res://.godot/imported/jail.map-0d362725fa2b276d0378785f93d7378f.tres"]
+
+[params]
+

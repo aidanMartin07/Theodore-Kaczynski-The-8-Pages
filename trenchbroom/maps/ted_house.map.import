@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cf8q84iw8y0kt"
+path="res://.godot/imported/ted_house.map-c3344b9daab3a896e2d9eb7701d6675d.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/ted_house.map"
+dest_files=["res://.godot/imported/ted_house.map-c3344b9daab3a896e2d9eb7701d6675d.tres"]
+
+[params]
+

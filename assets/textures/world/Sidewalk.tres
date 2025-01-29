@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://osjn8qb2pfyi"]
+
+[ext_resource type="Texture2D" uid="uid://ccu3fk4x52wrf" path="res://assets/textures/world/Sidewalk.jpg" id="1_vo5o7"]
+
+[resource]
+albedo_texture = ExtResource("1_vo5o7")
+metallic_specular = 0.0
+texture_filter = 2

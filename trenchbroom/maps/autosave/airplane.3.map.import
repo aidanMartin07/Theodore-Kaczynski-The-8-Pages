@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dst01f2ls2xkp"
+path="res://.godot/imported/airplane.3.map-5d7abe89fa8b291368d513983a8cb526.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/autosave/airplane.3.map"
+dest_files=["res://.godot/imported/airplane.3.map-5d7abe89fa8b291368d513983a8cb526.tres"]
+
+[params]
+

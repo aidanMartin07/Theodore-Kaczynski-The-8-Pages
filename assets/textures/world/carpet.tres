@@ -4,7 +4,6 @@
 
 [resource]
 transparency = 1
-albedo_color = Color(1, 1, 1, 0.901961)
 albedo_texture = ExtResource("1_g0voi")
 metallic_specular = 0.0
 texture_filter = 2

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cccgm5n82qjtt"]
+
+[ext_resource type="Texture2D" uid="uid://cxmyptn11b3ql" path="res://assets/textures/world/plane_64.png" id="1_vrj0v"]
+
+[resource]
+albedo_texture = ExtResource("1_vrj0v")
+metallic_specular = 0.0
+texture_filter = 2

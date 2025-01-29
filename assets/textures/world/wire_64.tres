@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bvcc1at3umhdd"]
+
+[ext_resource type="Texture2D" uid="uid://cdguvc4w4gf1b" path="res://assets/textures/world/wire_64.png" id="1_whbly"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_whbly")
+metallic_specular = 0.0
+texture_filter = 2

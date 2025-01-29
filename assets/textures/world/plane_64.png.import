@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccu3fk4x52wrf"
-path.s3tc="res://.godot/imported/Sidewalk.jpg-311a7a6e853fbae41d156cfcc31ac5c6.s3tc.ctex"
+uid="uid://cxmyptn11b3ql"
+path.s3tc="res://.godot/imported/plane_64.png-597108b82b1aca4fabcad2941513d87b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/world/Sidewalk.jpg"
-dest_files=["res://.godot/imported/Sidewalk.jpg-311a7a6e853fbae41d156cfcc31ac5c6.s3tc.ctex"]
+source_file="res://assets/textures/world/plane_64.png"
+dest_files=["res://.godot/imported/plane_64.png-597108b82b1aca4fabcad2941513d87b.s3tc.ctex"]
 
 [params]
 
