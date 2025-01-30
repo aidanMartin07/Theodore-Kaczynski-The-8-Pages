@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0eygrf7gyjlp"]
+
+[ext_resource type="Texture2D" uid="uid://llu7vwgd15f7" path="res://assets/images/Reward_Poster.jpg" id="1_aw4ru"]
+[ext_resource type="Script" path="res://entities/page/page.gd" id="1_qtgxw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb5dc"]
+albedo_texture = ExtResource("1_aw4ru")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_prqfs"]
+material = SubResource("StandardMaterial3D_mb5dc")
+
+[node name="Page" type="Node3D"]
+script = ExtResource("1_qtgxw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_prqfs")

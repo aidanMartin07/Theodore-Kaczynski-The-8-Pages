@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bx4764mpmbq3f"]
+[gd_scene load_steps=49 format=4 uid="uid://bx4764mpmbq3f"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_rgkyd"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_ln5p8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://d30llv2le4wj3" path="res://assets/textures/world/glass.tres" id="7_1itbg"]
 [ext_resource type="Material" uid="uid://d3ttg8jl33022" path="res://assets/textures/world/blue_roof_64.tres" id="8_ygu7s"]
 [ext_resource type="Material" uid="uid://dq738dde5cdbg" path="res://assets/textures/world/brick_64.tres" id="9_dgw7h"]
+[ext_resource type="PackedScene" uid="uid://br1hqts00u56l" path="res://props/table.tscn" id="10_gflvo"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2ma41"]
 _surfaces = [{
@@ -332,3 +333,6 @@ shape = SubResource("ConvexPolygonShape3D_ughqq")
 
 [node name="entity_0_brush_35_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_065ow")
+
+[node name="Table" parent="." instance=ExtResource("10_gflvo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5, 1, 2.65)

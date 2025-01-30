@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://b8h8vkgkgh54a"]
+[gd_scene load_steps=11 format=4 uid="uid://b8h8vkgkgh54a"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_bkf04"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_5y74l"]
 [ext_resource type="Material" uid="uid://d3q06flu55oyp" path="res://assets/textures/world/wood_wall_64.tres" id="3_036w8"]
-[ext_resource type="Texture2D" uid="uid://llu7vwgd15f7" path="res://assets/images/Reward_Poster.jpg" id="4_ldce2"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mtr8v"]
 _surfaces = [{
@@ -39,12 +38,6 @@ points = PackedVector3Array(-0.875, 3.125, -0.25, -0.875, 2.875, -0.25, -0.25, 2
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b1ac3"]
 points = PackedVector3Array(0.25, 3.125, -0.25, 0.25, 2.875, -0.25, 0.875, 2.875, -0.25, 0.875, 3.125, -0.25, 0.25, 3.125, 0, 0.25, 2.875, 0, 0.875, 2.875, 0, 0.875, 3.125, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iibmd"]
-albedo_texture = ExtResource("4_ldce2")
-
-[sub_resource type="QuadMesh" id="QuadMesh_5piu6"]
-material = SubResource("StandardMaterial3D_iibmd")
-
 [node name="Post" type="Node3D"]
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
@@ -76,7 +69,3 @@ shape = SubResource("ConvexPolygonShape3D_v4nvj")
 
 [node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_b1ac3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00340039, 1.20581, 0.122106)
-mesh = SubResource("QuadMesh_5piu6")
