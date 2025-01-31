@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c51anmsk2psmn"]
+[gd_scene load_steps=9 format=3 uid="uid://c51anmsk2psmn"]
 
 [ext_resource type="Script" path="res://entities/player/player_body.gd" id="1_l04wq"]
 [ext_resource type="Script" path="res://entities/player/interact_ray_cast.gd" id="2_h8kir"]
 [ext_resource type="Script" path="res://entities/player/hud.gd" id="3_g5sbg"]
 [ext_resource type="Texture2D" uid="uid://c6kot1umx2uog" path="res://assets/ui/bar_under.png" id="4_hqua6"]
 [ext_resource type="Texture2D" uid="uid://cuuo4i7rg33mi" path="res://assets/ui/sprint_over.png" id="5_xva1m"]
+[ext_resource type="PackedScene" uid="uid://dfax2flagksg1" path="res://props/flashlight.glb" id="6_opmmb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_natwf"]
 radius = 0.4
@@ -28,6 +29,9 @@ shape = SubResource("CapsuleShape3D_wpf4s")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraHolder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="flashlight" parent="CharacterBody3D/CameraHolder/Camera3D" instance=ExtResource("6_opmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.272377, -0.178194, -0.352694)
 
 [node name="Flashlight" type="SpotLight3D" parent="CharacterBody3D/CameraHolder/Camera3D"]
 light_energy = 4.0

@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="PlayerKeybindResource" load_steps=9 format=3 uid="uid://co7mfedirhgtk"]
+
+[ext_resource type="Script" path="res://settings/PlayerKeybindResource.gd" id="1_tmdra"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_630jx"]
+device = -1
+physical_keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_p11xq"]
+device = -1
+physical_keycode = 70
+unicode = 102
+
+[sub_resource type="InputEventKey" id="InputEventKey_vf7vw"]
+device = -1
+physical_keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_svfa0"]
+device = -1
+physical_keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_d2khq"]
+device = -1
+physical_keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_6jpun"]
+device = -1
+physical_keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_jydnn"]
+device = -1
+physical_keycode = 4194325
+
+[resource]
+script = ExtResource("1_tmdra")
+DEFAULT_FORWARD_KEY = SubResource("InputEventKey_vf7vw")
+DEFAULT_BACKWARD_KEY = SubResource("InputEventKey_630jx")
+DEFAULT_LEFT_KEY = SubResource("InputEventKey_d2khq")
+DEFAULT_RIGHT_KEY = SubResource("InputEventKey_6jpun")
+DEFAULT_SHIFT_KEY = SubResource("InputEventKey_jydnn")
+DEFAULT_INTERACT_KEY = SubResource("InputEventKey_svfa0")
+DEFAULT_FLASHLIGHT_KEY = SubResource("InputEventKey_p11xq")

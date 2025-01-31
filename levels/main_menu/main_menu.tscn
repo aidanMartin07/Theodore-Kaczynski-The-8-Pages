@@ -28,13 +28,31 @@ bbcode_enabled = true
 text = "[center][color=black][b]Theodore Kaczynski:
 The Eight Pages"
 
-[node name="Button" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 543.0
+offset_left = 528.0
 offset_top = 288.0
-offset_right = 661.0
+offset_right = 688.0
 offset_bottom = 335.0
 theme_override_font_sizes/font_size = 34
 text = "Start"
 
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 344.0
+offset_right = 688.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 34
+text = "Options"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 400.0
+offset_right = 688.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 34
+text = "Quit"
+
+[connection signal="button_up" from="StartButton" to="." method="_on_button_button_up"]

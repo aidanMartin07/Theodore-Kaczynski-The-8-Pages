@@ -20,13 +20,9 @@ var can_sprint: bool = true
 const SPRINT_MAX: int = 100
 var sprint_drain: int = 45
 var sprint_gain: int = 30
-var can_gain_sprint: bool = false
 var sprinting: bool = false
 
 var can_regen: bool = false
-var time_to_wait = 3
-var s_timer = 0
-var can_start_stimer: bool = true
 var start_regen: bool = false
 
 var flash_on: bool = true

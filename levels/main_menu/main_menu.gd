@@ -1,6 +1,6 @@
 extends Control
 
-@onready var button: Button = $Button
+@onready var start_button: Button = $StartButton
 
 
 func _on_button_button_up() -> void:
