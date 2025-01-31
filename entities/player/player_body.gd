@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const WALK_SPEED: float = 2.0
-const SPRINT_SPEED: float = 6
+const SPRINT_SPEED: float = 4.0
 const JUMP_VELOCITY:float = 4.5
 const SENSITIVITY:float = 0.0018
 
@@ -16,10 +16,30 @@ var t_bob = 0.0
 var gravity: float = 9.8
 var speed: float = 0.0
 
+var can_sprint: bool = true
+const SPRINT_MAX: int = 100
+var sprint_drain: int = 45
+var sprint_gain: int = 30
+var can_gain_sprint: bool = false
+var sprinting: bool = false
+
+var can_regen: bool = false
+var time_to_wait = 3
+var s_timer = 0
+var can_start_stimer: bool = true
+var start_regen: bool = false
+
+var flash_on: bool = true
+
 @onready var head: Node3D = $CameraHolder
 @onready var camera: Camera3D = $CameraHolder/Camera3D
+@onready var flashlight: SpotLight3D = $CameraHolder/Camera3D/Flashlight
+@onready var sprint_bar: TextureProgressBar = $"../HUD/SprintBar"
+@onready var sprint_gain_timer: Timer = $"../SprintGainTimer"
 
 func _ready():
+	sprint_bar.value = SPRINT_MAX
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
@@ -29,6 +49,36 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
+	if(start_regen and can_regen):
+		sprint_bar.value += sprint_gain * delta
+	
+	if(sprint_bar.value == 100):
+		can_regen = false
+		start_regen = false
+	
+	if(sprint_bar.value != 0):
+		can_regen = true
+		can_sprint = true
+	
+	if(sprint_bar.value == 0):
+		can_sprint = false
+	
+	if(Input.is_action_pressed("shift") and can_sprint):
+		if(sprint_bar.value > 0 ):
+			start_regen = false
+			can_regen = false
+			sprint_bar.value -= sprint_drain * delta
+	
+	if(Input.is_action_just_released("shift")):
+		sprint_gain_timer.start(3)
+	
+	if(Input.is_action_just_pressed("flashlight")):
+		flash_on = !flash_on
+		if(flash_on):
+			flashlight.light_energy = 4
+		else:
+			flashlight.light_energy = 0
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -37,7 +87,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_pressed("shift"):
+	if (Input.is_action_pressed("shift") and can_sprint):
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
@@ -51,8 +101,8 @@ func _physics_process(delta):
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 9.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 9.0)
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
@@ -73,3 +123,9 @@ func _headbob(time) -> Vector3:
 	pos.y += sin(time*BOB_FREQ) * BOB_AMP_VERT
 	pos.x = cos(time * BOB_FREQ /2 ) * BOB_AMP_HORIZONTAL
 	return pos
+
+
+func _on_sprint_gain_timer_timeout() -> void:
+	print("timeout")
+	start_regen = true
+	can_regen = true

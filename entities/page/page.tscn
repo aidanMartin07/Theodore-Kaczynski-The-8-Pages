@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0eygrf7gyjlp"]
+[gd_scene load_steps=6 format=3 uid="uid://c0eygrf7gyjlp"]
 
 [ext_resource type="Texture2D" uid="uid://llu7vwgd15f7" path="res://assets/images/Reward_Poster.jpg" id="1_aw4ru"]
 [ext_resource type="Script" path="res://entities/page/page.gd" id="1_qtgxw"]
@@ -11,9 +11,20 @@ billboard_keep_scale = true
 [sub_resource type="QuadMesh" id="QuadMesh_prqfs"]
 material = SubResource("StandardMaterial3D_mb5dc")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfeq0"]
+size = Vector3(0.511963, 0.415527, 0.317627)
+
 [node name="Page" type="Node3D"]
 script = ExtResource("1_qtgxw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["page"]]
 transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+layers = 2
 mesh = SubResource("QuadMesh_prqfs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["page"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0159912, 0.0554199, 0.0899658)
+shape = SubResource("BoxShape3D_hfeq0")

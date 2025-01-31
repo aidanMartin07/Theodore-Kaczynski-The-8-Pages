@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c51anmsk2psmn"]
+[gd_scene load_steps=8 format=3 uid="uid://c51anmsk2psmn"]
 
 [ext_resource type="Script" path="res://entities/player/player_body.gd" id="1_l04wq"]
+[ext_resource type="Script" path="res://entities/player/interact_ray_cast.gd" id="2_h8kir"]
+[ext_resource type="Script" path="res://entities/player/hud.gd" id="3_g5sbg"]
+[ext_resource type="Texture2D" uid="uid://c6kot1umx2uog" path="res://assets/ui/bar_under.png" id="4_hqua6"]
+[ext_resource type="Texture2D" uid="uid://cuuo4i7rg33mi" path="res://assets/ui/sprint_over.png" id="5_xva1m"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_natwf"]
 radius = 0.4
@@ -25,7 +29,43 @@ shape = SubResource("CapsuleShape3D_wpf4s")
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraHolder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/CameraHolder/Camera3D"]
+[node name="Flashlight" type="SpotLight3D" parent="CharacterBody3D/CameraHolder/Camera3D"]
 light_energy = 4.0
 spot_range = 15.0
 spot_angle = 25.0
+
+[node name="InteractRayCast" type="RayCast3D" parent="CharacterBody3D/CameraHolder/Camera3D"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 2
+script = ExtResource("2_h8kir")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_g5sbg")
+
+[node name="PageCount" type="RichTextLabel" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_right = 66.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "Pages:"
+
+[node name="SprintBar" type="TextureProgressBar" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+offset_right = 148.0
+grow_vertical = 0
+value = 50.0
+texture_under = ExtResource("4_hqua6")
+texture_progress = ExtResource("5_xva1m")
+
+[node name="SprintGainTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="SprintGainTimer" to="CharacterBody3D" method="_on_sprint_gain_timer_timeout"]

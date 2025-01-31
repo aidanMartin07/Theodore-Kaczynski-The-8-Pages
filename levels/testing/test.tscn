@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://m3ajtn4obmfa"]
+[gd_scene load_steps=18 format=4 uid="uid://m3ajtn4obmfa"]
 
 [ext_resource type="PackedScene" uid="uid://c51anmsk2psmn" path="res://entities/player/player.tscn" id="2_ddqpa"]
+[ext_resource type="PackedScene" uid="uid://c0eygrf7gyjlp" path="res://entities/page/page.tscn" id="3_75tyh"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_ghmcg"]
 [ext_resource type="Material" uid="uid://yd4j5gqg78wo" path="res://assets/textures/world/grass_64.tres" id="4_hfmsv"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_tu7um"]
@@ -48,9 +49,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31521, 0)
 
 [node name="Ted" parent="." instance=ExtResource("11_tglaq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -4.236)
+visible = false
 
 [node name="CharacterBody3D" parent="Ted" index="0" node_paths=PackedStringArray("player_node")]
 player_node = NodePath("../../Player/CharacterBody3D")
+
+[node name="Page" parent="." instance=ExtResource("3_75tyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0482118, 2.09911, 4.4696)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_o5kn1")
