@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c51anmsk2psmn"]
+[gd_scene load_steps=10 format=3 uid="uid://c51anmsk2psmn"]
 
 [ext_resource type="Script" path="res://entities/player/player_body.gd" id="1_l04wq"]
 [ext_resource type="Script" path="res://entities/player/interact_ray_cast.gd" id="2_h8kir"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c6kot1umx2uog" path="res://assets/ui/bar_under.png" id="4_hqua6"]
 [ext_resource type="Texture2D" uid="uid://cuuo4i7rg33mi" path="res://assets/ui/sprint_over.png" id="5_xva1m"]
 [ext_resource type="PackedScene" uid="uid://dfax2flagksg1" path="res://props/flashlight.glb" id="6_opmmb"]
+[ext_resource type="Texture2D" uid="uid://dol2wbjy763qn" path="res://assets/crosshair.png" id="7_by8ul"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_natwf"]
 radius = 0.4
@@ -67,6 +68,22 @@ grow_vertical = 0
 value = 50.0
 texture_under = ExtResource("4_hqua6")
 texture_progress = ExtResource("5_xva1m")
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 17.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_by8ul")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="SprintGainTimer" type="Timer" parent="."]
 wait_time = 3.0
