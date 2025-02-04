@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const WALK_SPEED: float = 2.0
-const SPRINT_SPEED: float = 4.0
+const WALK_SPEED: float = 2.0 # default 0f 2.0
+const SPRINT_SPEED: float = 55 #default of 4.0
 const JUMP_VELOCITY:float = 4.5
 const SENSITIVITY:float = 0.0018
 
@@ -17,9 +17,9 @@ var gravity: float = 9.8
 var speed: float = 0.0
 
 var can_sprint: bool = true
-const SPRINT_MAX: int = 100
-var sprint_drain: int = 45
-var sprint_gain: int = 30
+const SPRINT_MAX: int = 200
+var sprint_drain: int = 0 # default 45
+var sprint_gain: int = 30 #30 to let it gain
 var sprinting: bool = false
 
 var can_regen: bool = false
@@ -32,6 +32,7 @@ var flash_on: bool = true
 @onready var flashlight: SpotLight3D = $CameraHolder/Camera3D/Flashlight
 @onready var sprint_bar: TextureProgressBar = $"../HUD/SprintBar"
 @onready var sprint_gain_timer: Timer = $"../SprintGainTimer"
+@onready var flashlight_model: Node3D = $CameraHolder/Camera3D/flashlight_model
 
 func _ready():
 	sprint_bar.value = SPRINT_MAX
@@ -48,7 +49,7 @@ func _physics_process(delta):
 	if(start_regen and can_regen):
 		sprint_bar.value += sprint_gain * delta
 	
-	if(sprint_bar.value == 100):
+	if(sprint_bar.value == 200):
 		can_regen = false
 		start_regen = false
 	
@@ -122,6 +123,5 @@ func _headbob(time) -> Vector3:
 
 
 func _on_sprint_gain_timer_timeout() -> void:
-	print("timeout")
 	start_regen = true
 	can_regen = true

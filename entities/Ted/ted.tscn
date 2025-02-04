@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgg6x4vy2ep2k"]
+[gd_scene load_steps=7 format=3 uid="uid://cgg6x4vy2ep2k"]
 
 [ext_resource type="Texture2D" uid="uid://d1n4myihq7ril" path="res://assets/images/Ted_Kaczynski_2_(cropped).jpg" id="1_4nvhv"]
 [ext_resource type="Script" path="res://entities/Ted/ted_body.gd" id="1_jweu6"]
@@ -14,6 +14,9 @@ billboard_keep_scale = true
 [sub_resource type="QuadMesh" id="QuadMesh_sklgb"]
 material = SubResource("StandardMaterial3D_4k8ev")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_1w0vx"]
+radius = 15.0
+
 [node name="Ted" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
@@ -28,3 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_sklgb")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+
+[node name="Area3D" type="Area3D" parent="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D"]
+shape = SubResource("SphereShape3D_1w0vx")

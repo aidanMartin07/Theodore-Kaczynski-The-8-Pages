@@ -6,7 +6,7 @@
 function = 1
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_acfci"]
-constant = 3.0
+constant = 10.0
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_dt3ox"]
 input_name = "uv"
@@ -21,6 +21,8 @@ input_name = "uv"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1j4ee"]
 noise_type = 0
+seed = 7
+frequency = 0.005
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q43cn"]
@@ -44,7 +46,7 @@ texture = ExtResource("1_03l2v")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_imjxa"]
-constant = 2.0
+constant = 8.0
 
 [resource]
 code = "shader_type spatial;
@@ -62,7 +64,7 @@ void fragment() {
 
 
 // FloatConstant:9
-	float n_out9p0 = 2.000000;
+	float n_out9p0 = 8.000000;
 
 
 // UVFunc:3
@@ -79,7 +81,7 @@ void fragment() {
 
 
 // FloatConstant:11
-	float n_out11p0 = 3.000000;
+	float n_out11p0 = 10.000000;
 
 
 // UVFunc:10
@@ -105,6 +107,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-707.364, 311.424)
 nodes/fragment/2/node = SubResource("VisualShaderNodeInput_dt3ox")
 nodes/fragment/2/position = Vector2(-1140, 60)
 nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_of1p8")

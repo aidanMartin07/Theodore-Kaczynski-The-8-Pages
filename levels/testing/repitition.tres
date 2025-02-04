@@ -1,18 +1,22 @@
-[gd_resource type="VisualShader" load_steps=15 format=3 uid="uid://brkvlcustumxr"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://brkvlcustumxr"]
 
 [ext_resource type="Texture2D" uid="uid://c8putkck4ylis" path="res://assets/textures/world/grass_texture.png" id="1_t5y7m"]
+[ext_resource type="Texture2D" uid="uid://cnxefman43tyt" path="res://assets/textures/world/dirt_64.png" id="2_lf1p5"]
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_aumpe"]
 default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
 op_type = 3
 
 [sub_resource type="Gradient" id="Gradient_e3ded"]
+offsets = PackedFloat32Array(0.202586, 0.258621, 0.362069, 0.448276, 0.5, 0.521552, 0.625, 1)
+colors = PackedColorArray(0.0335226, 0.0335226, 0.0335226, 1, 0.12931, 0.12931, 0.12931, 1, 0.16426, 0.16426, 0.16426, 1, 0.155172, 0.155172, 0.155172, 1, 0.192661, 0.192661, 0.192661, 1, 0, 0, 0, 1, 0.186662, 0.186662, 0.186662, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1j4ee"]
 noise_type = 0
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q43cn"]
+seamless_blend_skirt = 0.75
 color_ramp = SubResource("Gradient_e3ded")
 noise = SubResource("FastNoiseLite_1j4ee")
 
@@ -31,10 +35,10 @@ input_name = "uv"
 function = 1
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_lt8or"]
-constant = 0.5
+constant = 35.0
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tmj84"]
-texture = ExtResource("1_t5y7m")
+texture = ExtResource("2_lf1p5")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_joseb"]
@@ -44,7 +48,7 @@ input_name = "uv"
 function = 1
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_f0t67"]
-constant = 0.5
+constant = 25.0
 
 [resource]
 code = "shader_type spatial;
@@ -62,7 +66,7 @@ void fragment() {
 
 
 // FloatConstant:5
-	float n_out5p0 = 0.500000;
+	float n_out5p0 = 35.000000;
 
 
 // UVFunc:4
@@ -79,7 +83,7 @@ void fragment() {
 
 
 // FloatConstant:9
-	float n_out9p0 = 0.500000;
+	float n_out9p0 = 25.000000;
 
 
 // UVFunc:8
@@ -105,6 +109,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-629.031, 1272.26)
 nodes/fragment/0/position = Vector2(380, 520)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ig5kg")
 nodes/fragment/2/position = Vector2(-282.729, 519.737)

@@ -7,15 +7,16 @@
 render_priority = 0
 shader = ExtResource("2_18av8")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8nmln"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p1nv3"]
 data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="grass_large" instance=ExtResource("1_olpl1")]
 
 [node name="Plane" parent="." index="0"]
+transform = Transform3D(16, 0, 0, 0, 1, 0, 0, 0, 16, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_4uly1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8nmln")
+shape = SubResource("ConcavePolygonShape3D_p1nv3")
