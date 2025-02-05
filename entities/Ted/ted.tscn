@@ -31,6 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_sklgb")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+debug_enabled = true
+debug_path_custom_color = Color(0.877496, 0.424937, 0.67515, 1)
 
 [node name="Area3D" type="Area3D" parent="CharacterBody3D"]
 

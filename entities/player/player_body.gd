@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const WALK_SPEED: float = 2.0 # default 0f 2.0
-const SPRINT_SPEED: float = 55 #default of 4.0
+const SPRINT_SPEED: float = 22.0 #default of 4.0
 const JUMP_VELOCITY:float = 4.5
 const SENSITIVITY:float = 0.0018
 
@@ -10,10 +10,10 @@ const FOV_CHANGE: float = 1.1
 #headbob vars
 const BOB_FREQ: float = 1.5
 const BOB_AMP_VERT: float = 0.06
-const BOB_AMP_HORIZONTAL: float = 0.02
+const BOB_AMP_HORIZONTAL: float = 0.06
 var t_bob = 0.0
 
-var gravity: float = 9.8
+var gravity: float = 12.0
 var speed: float = 0.0
 
 var can_sprint: bool = true

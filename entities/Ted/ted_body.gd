@@ -7,6 +7,9 @@ const SPEED = 1.5
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
+func _ready() -> void:
+	make_path()
+
 func _physics_process(delta: float) -> void:
 	make_path()
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
