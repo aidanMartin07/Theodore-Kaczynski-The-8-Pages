@@ -1,11 +1,13 @@
-[gd_scene load_steps=41 format=3 uid="uid://rd2h16y5s0t3"]
+[gd_scene load_steps=43 format=3 uid="uid://rd2h16y5s0t3"]
 
 [ext_resource type="PackedScene" uid="uid://c51anmsk2psmn" path="res://entities/player/player.tscn" id="1_2urfj"]
+[ext_resource type="Script" path="res://levels/forest/forest.gd" id="1_5cv3h"]
 [ext_resource type="Texture2D" uid="uid://bbr3cp0puo885" path="res://assets/images/sky.png" id="1_wyb7c"]
 [ext_resource type="PackedScene" uid="uid://c3dhosfhqpf2c" path="res://assets/tiles/grass_large/grass_large.tscn" id="2_ebtcp"]
 [ext_resource type="Material" uid="uid://va2smxresbff" path="res://assets/textures/world/grass_texture.tres" id="2_fq6e4"]
 [ext_resource type="PackedScene" uid="uid://cgg6x4vy2ep2k" path="res://entities/Ted/ted.tscn" id="2_kanrw"]
 [ext_resource type="PackedScene" uid="uid://b8h8vkgkgh54a" path="res://props/post.tscn" id="3_d2dm4"]
+[ext_resource type="PackedScene" uid="uid://cx5krffiyac64" path="res://entities/pipe/pipe.tscn" id="4_3xyue"]
 [ext_resource type="PackedScene" uid="uid://bx4764mpmbq3f" path="res://levels/ted_house.tscn" id="4_alln1"]
 [ext_resource type="PackedScene" uid="uid://cjlr5tjk47a3v" path="res://levels/university_1.tscn" id="5_75igc"]
 [ext_resource type="PackedScene" uid="uid://dsk2jk2pa1odc" path="res://levels/airplane.tscn" id="6_lra8m"]
@@ -29,8 +31,8 @@ tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.0820509, 0.093329, 0.11106, 1)
-fog_light_energy = 0.9
-fog_density = 0.035
+fog_light_energy = 0.25
+fog_density = 0.1
 fog_sky_affect = 0.95
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_6itk8"]
@@ -111,6 +113,7 @@ size = Vector2(19, 12)
 data = PackedVector3Array(9.5, 0, 6, -9.5, 0, 6, 9.5, 0, -6, -9.5, 0, 6, -9.5, 0, -6, 9.5, 0, -6)
 
 [node name="Forest" type="Node3D"]
+script = ExtResource("1_5cv3h")
 
 [node name="Sky" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q2cpj")
@@ -123,6 +126,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6031, 1.55, -44.5969)
 
 [node name="CharacterBody3D" parent="Ted" index="0" node_paths=PackedStringArray("player_node")]
 player_node = NodePath("../../Player/CharacterBody3D")
+
+[node name="pipe" parent="." node_paths=PackedStringArray("player_radius") instance=ExtResource("4_3xyue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+player_radius = NodePath("../Player/CharacterBody3D/PlayerArea")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0176325, -4.76837e-07, -0.195761)
@@ -467,6 +474,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 15)
 
 [node name="fence2" parent="NavigationRegion3D" instance=ExtResource("15_xsej6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 0, -15)
+
+[node name="PipesTimer" type="Timer" parent="."]
+wait_time = 180.0
+autostart = true
 
 [editable path="Player"]
 [editable path="Ted"]

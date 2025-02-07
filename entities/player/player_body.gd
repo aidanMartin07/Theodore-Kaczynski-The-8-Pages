@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const WALK_SPEED: float = 2.0 # default 0f 2.0
-const SPRINT_SPEED: float = 22.0 #default of 4.0
+const SPRINT_SPEED: float = 12.0 #default of 4.0
 const JUMP_VELOCITY:float = 4.5
 const SENSITIVITY:float = 0.0018
 
@@ -27,23 +27,33 @@ var start_regen: bool = false
 
 var flash_on: bool = true
 
+var paused = false
+
 @onready var head: Node3D = $CameraHolder
 @onready var camera: Camera3D = $CameraHolder/Camera3D
 @onready var flashlight: SpotLight3D = $CameraHolder/Camera3D/Flashlight
 @onready var sprint_bar: TextureProgressBar = $"../HUD/SprintBar"
 @onready var sprint_gain_timer: Timer = $"../SprintGainTimer"
 @onready var flashlight_model: Node3D = $CameraHolder/Camera3D/flashlight_model
+@onready var hud: CanvasLayer = $"../HUD"
+@onready var player: Node3D = $".."
 
 func _ready():
 	sprint_bar.value = SPRINT_MAX
-	
+	print(player.get_path())
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
+
+func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("Escape") and paused == false):
+		open_pause_menu()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _physics_process(delta):
 	if(start_regen and can_regen):
@@ -86,8 +96,10 @@ func _physics_process(delta):
 	
 	if (Input.is_action_pressed("shift") and can_sprint):
 		speed = SPRINT_SPEED
+		flashlight.rotation.x = lerp_angle(-0.7, 0.0, delta *10.0)
 	else:
 		speed = WALK_SPEED
+		flashlight.rotation.x = lerp_angle(-0.0, -0.7, delta* 10.0)
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -121,6 +133,10 @@ func _headbob(time) -> Vector3:
 	pos.x = cos(time * BOB_FREQ /2 ) * BOB_AMP_HORIZONTAL
 	return pos
 
+func open_pause_menu():
+	var pause_menu = load("res://levels/pause_menu/pause_menu.tscn").instantiate()
+	paused = true
+	hud.add_child(pause_menu)
 
 func _on_sprint_gain_timer_timeout() -> void:
 	start_regen = true
