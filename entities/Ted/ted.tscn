@@ -15,15 +15,17 @@ billboard_keep_scale = true
 material = SubResource("StandardMaterial3D_4k8ev")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ifidp"]
-radius = 15.0
+radius = 5.0
 
-[node name="Ted" type="Node3D"]
+[node name="Ted" type="Node3D" groups=["Ted"]]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+motion_mode = 1
+safe_margin = 0.5
 script = ExtResource("1_jweu6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0015752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.277222, 0.0015752)
 shape = SubResource("BoxShape3D_ddfkc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
@@ -34,8 +36,17 @@ mesh = SubResource("QuadMesh_sklgb")
 debug_enabled = true
 debug_path_custom_color = Color(0.877496, 0.424937, 0.67515, 1)
 
+[node name="WanderTimer" type="Timer" parent="CharacterBody3D"]
+wait_time = 65.0
+autostart = true
+
 [node name="TedArea" type="Area3D" parent="CharacterBody3D"]
 collision_mask = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/TedArea"]
 shape = SubResource("CylinderShape3D_ifidp")
+
+[connection signal="navigation_finished" from="CharacterBody3D/NavigationAgent3D" to="CharacterBody3D" method="_on_navigation_agent_3d_navigation_finished"]
+[connection signal="timeout" from="CharacterBody3D/WanderTimer" to="CharacterBody3D" method="_on_wander_timer_timeout"]
+[connection signal="body_entered" from="CharacterBody3D/TedArea" to="CharacterBody3D" method="_on_ted_area_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/TedArea" to="CharacterBody3D" method="_on_ted_area_body_exited"]

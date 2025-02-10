@@ -16,7 +16,7 @@ height = 1.8
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2t105"]
 height = 3.0
-radius = 4.0
+radius = 5.0
 
 [node name="Player" type="Node3D" groups=["Player"]]
 

@@ -1,21 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://spmvwcmjphcw"]
+[gd_scene load_steps=7 format=3 uid="uid://spmvwcmjphcw"]
 
 [ext_resource type="PackedScene" uid="uid://32gisvqvw44f" path="res://assets/tiles/grass_1/grass_1.glb" id="1_ddmpn"]
 [ext_resource type="Shader" uid="uid://brkvlcustumxr" path="res://levels/testing/repitition.tres" id="2_7mvvk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjpc3"]
+render_priority = 0
+shader = ExtResource("2_7mvvk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t16w7"]
+material = SubResource("ShaderMaterial_sjpc3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0t2tl"]
 render_priority = 0
 shader = ExtResource("2_7mvvk")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dnkel"]
-data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s0bke"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="grass_1" instance=ExtResource("1_ddmpn")]
 
 [node name="Cube" parent="." index="0"]
+mesh = SubResource("PlaneMesh_t16w7")
 surface_material_override/0 = SubResource("ShaderMaterial_0t2tl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_dnkel")
+shape = SubResource("ConcavePolygonShape3D_s0bke")

@@ -22,7 +22,10 @@ Utils="*res://entities/Utils.gd"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
@@ -32,6 +35,7 @@ enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
 
 page=""
 Player=""
+Ted=""
 
 [gui]
 

@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://brkvlcustumxr"]
 
 [ext_resource type="Texture2D" uid="uid://c8putkck4ylis" path="res://assets/textures/world/grass_texture.png" id="1_t5y7m"]
-[ext_resource type="Texture2D" uid="uid://cnxefman43tyt" path="res://assets/textures/world/dirt_64.png" id="2_lf1p5"]
+[ext_resource type="Texture2D" uid="uid://dsuruiflap02c" path="res://assets/textures/world/grass_64.png" id="2_g6rrc"]
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_aumpe"]
 default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
@@ -35,10 +35,10 @@ input_name = "uv"
 function = 1
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_lt8or"]
-constant = 35.0
+constant = 1.0
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tmj84"]
-texture = ExtResource("2_lf1p5")
+texture = ExtResource("2_g6rrc")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_joseb"]
@@ -48,7 +48,7 @@ input_name = "uv"
 function = 1
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_f0t67"]
-constant = 25.0
+constant = 3.0
 
 [resource]
 code = "shader_type spatial;
@@ -66,7 +66,7 @@ void fragment() {
 
 
 // FloatConstant:5
-	float n_out5p0 = 35.000000;
+	float n_out5p0 = 1.000000;
 
 
 // UVFunc:4
@@ -83,7 +83,7 @@ void fragment() {
 
 
 // FloatConstant:9
-	float n_out9p0 = 25.000000;
+	float n_out9p0 = 3.000000;
 
 
 // UVFunc:8

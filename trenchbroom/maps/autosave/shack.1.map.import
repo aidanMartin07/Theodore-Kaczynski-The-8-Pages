@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://4ql5biv2ilhs"
+path="res://.godot/imported/shack.1.map-98612c4938d2f9002bf941584e1090ac.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/autosave/shack.1.map"
+dest_files=["res://.godot/imported/shack.1.map-98612c4938d2f9002bf941584e1090ac.tres"]
+
+[params]
+

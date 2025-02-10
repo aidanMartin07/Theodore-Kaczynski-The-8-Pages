@@ -25,7 +25,7 @@ func respawn() -> void:
 	var spawn_z = int(randf_range(spawn_min["z"], spawn_max["z"]))
 	global_position = Vector3(spawn_x, 0, spawn_z)
 	global_rotation.y= randf_range(deg_to_rad(30), deg_to_rad(180))
-	print(str(global_position))
+	#print(str(global_position))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -44,7 +44,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_respawn_timer_timeout() -> void:
 	if(area_3d.get_overlapping_areas().size() == 0):
-		print("respawned")
+		#print("respawned")
 		respawn()
-	else:
-		print("player in bound")
+	#else:
+		#print("player in bound")

@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func resume():
 	get_tree().paused = false
-	player.paused  = false
+	player.paused = false
 	self.queue_free()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
