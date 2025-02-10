@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://docxlnvm7l814"]
+
+[ext_resource type="Texture2D" uid="uid://pw182ita54vw" path="res://assets/images/sparkle_on.png" id="1_k7j60"]
+
+[resource]
+albedo_texture = ExtResource("1_k7j60")
+billboard_mode = 2
+billboard_keep_scale = true

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://drnqbllj01wcr"]
+
+[ext_resource type="Texture2D" uid="uid://djdb6yx7gquyv" path="res://assets/images/manifesto_cover.jpg" id="1_jv2xh"]
+
+[resource]
+albedo_texture = ExtResource("1_jv2xh")
+billboard_mode = 2
+billboard_keep_scale = true

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c2oiow6lc1inq"]
+
+[ext_resource type="Texture2D" uid="uid://bgb0pmg5cme28" path="res://assets/images/tech_sucks.png" id="1_iqbm5"]
+
+[resource]
+albedo_texture = ExtResource("1_iqbm5")
+billboard_mode = 2
+billboard_keep_scale = true

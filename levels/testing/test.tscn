@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://m3ajtn4obmfa"]
+[gd_scene load_steps=26 format=4 uid="uid://m3ajtn4obmfa"]
 
 [ext_resource type="PackedScene" uid="uid://c51anmsk2psmn" path="res://entities/player/player.tscn" id="2_ddqpa"]
 [ext_resource type="PackedScene" uid="uid://c0eygrf7gyjlp" path="res://entities/page/page.tscn" id="3_75tyh"]
@@ -8,10 +8,16 @@
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_tu7um"]
 [ext_resource type="PackedScene" uid="uid://nfyi2an24n5i" path="res://levels/shack.tscn" id="5_5j7ud"]
 [ext_resource type="Material" uid="uid://err02ql3m2mg" path="res://assets/images/Page_2.tres" id="5_iujnm"]
+[ext_resource type="Material" uid="uid://drnqbllj01wcr" path="res://assets/images/page_3.tres" id="6_di0h6"]
 [ext_resource type="PackedScene" uid="uid://bibmidfwvcvvv" path="res://levels/computer_store.tscn" id="6_n2jd2"]
 [ext_resource type="PackedScene" uid="uid://cjlr5tjk47a3v" path="res://levels/university_1.tscn" id="7_emst2"]
+[ext_resource type="Material" uid="uid://c2oiow6lc1inq" path="res://assets/images/page_4.tres" id="7_x1rdn"]
+[ext_resource type="Material" uid="uid://pgodwqm6ogjm" path="res://assets/images/page_5.tres" id="8_dmmmq"]
 [ext_resource type="PackedScene" uid="uid://r8qbn0idwdxi" path="res://levels/jail.tscn" id="9_eqpvd"]
+[ext_resource type="Material" uid="uid://cjgwyb0r72lyp" path="res://assets/images/page_6.tres" id="9_nn8ot"]
 [ext_resource type="PackedScene" uid="uid://bx4764mpmbq3f" path="res://levels/ted_house.tscn" id="10_gc8pv"]
+[ext_resource type="Material" uid="uid://docxlnvm7l814" path="res://assets/images/page_7.tres" id="10_n8xra"]
+[ext_resource type="Material" uid="uid://bthugor4v7hwy" path="res://assets/images/page_8.tres" id="11_4d58v"]
 [ext_resource type="PackedScene" uid="uid://cgg6x4vy2ep2k" path="res://entities/Ted/ted.tscn" id="11_tglaq"]
 [ext_resource type="PackedScene" uid="uid://b8h8vkgkgh54a" path="res://props/post.tscn" id="12_7y7h8"]
 [ext_resource type="PackedScene" uid="uid://pk4xcv5eeaep" path="res://props/tree_2.tscn" id="16_ighr8"]
@@ -63,6 +69,30 @@ page_material = ExtResource("4_djnm8")
 [node name="Page2" parent="." instance=ExtResource("3_75tyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49006, 2.1422, 4.58954)
 page_material = ExtResource("5_iujnm")
+
+[node name="Page3" parent="." instance=ExtResource("3_75tyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49006, 2.1422, 4.58954)
+page_material = ExtResource("6_di0h6")
+
+[node name="Page4" parent="." instance=ExtResource("3_75tyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49006, 2.1422, 4.58954)
+page_material = ExtResource("7_x1rdn")
+
+[node name="Page5" parent="." instance=ExtResource("3_75tyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49006, 2.1422, 4.58954)
+page_material = ExtResource("8_dmmmq")
+
+[node name="Page6" parent="." instance=ExtResource("3_75tyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49006, 2.1422, 4.58954)
+page_material = ExtResource("9_nn8ot")
+
+[node name="Page7" parent="." instance=ExtResource("3_75tyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.49006, 2.1422, 4.58954)
+page_material = ExtResource("10_n8xra")
+
+[node name="Page8" parent="." instance=ExtResource("3_75tyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.49006, 2.1422, 4.58954)
+page_material = ExtResource("11_4d58v")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_o5kn1")
