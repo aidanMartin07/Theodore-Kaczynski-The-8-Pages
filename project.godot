@@ -19,11 +19,10 @@ config/icon="res://icon.svg"
 
 PlayerManager="*res://entities/player/Player_Manager.gd"
 Utils="*res://entities/Utils.gd"
+SceneTransition="*res://entities/scene_transition.tscn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
@@ -36,6 +35,7 @@ enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
 page=""
 Player=""
 Ted=""
+pipe=""
 
 [gui]
 

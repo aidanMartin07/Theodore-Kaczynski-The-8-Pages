@@ -27,6 +27,9 @@ func _on_resume_button_up() -> void:
 	resume()
 
 func _on_button_button_up() -> void:
+	get_tree().paused = false
+	player.paused = false
+	self.queue_free()
 	get_tree().change_scene_to_file("res://levels/main_menu/main_menu.tscn")
 
 

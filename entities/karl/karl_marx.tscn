@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://buusiovvsgfqf"]
+
+[ext_resource type="Script" path="res://entities/karl/karl_marx.gd" id="1_hf33f"]
+[ext_resource type="Texture2D" uid="uid://dbrxyfwd2ul1w" path="res://assets/images/karl_marx.png" id="1_xwb8b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihv3b"]
+albedo_texture = ExtResource("1_xwb8b")
+billboard_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5p3lb"]
+material = SubResource("StandardMaterial3D_ihv3b")
+orientation = 2
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pp3nx"]
+points = PackedVector3Array(1, 1, 0, 1, -1, 0, -1, 1, 0, -1, -1, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_hf33f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_5p3lb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_pp3nx")

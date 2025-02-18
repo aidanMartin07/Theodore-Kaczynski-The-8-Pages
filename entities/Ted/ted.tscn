@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgg6x4vy2ep2k"]
+[gd_scene load_steps=10 format=3 uid="uid://cgg6x4vy2ep2k"]
 
 [ext_resource type="Texture2D" uid="uid://d1n4myihq7ril" path="res://assets/images/Ted_Kaczynski_2_(cropped).jpg" id="1_4nvhv"]
 [ext_resource type="Script" path="res://entities/Ted/ted_body.gd" id="1_jweu6"]
+[ext_resource type="AudioStream" uid="uid://dkk3j8m8wdo14" path="res://assets/sounds/slender/staticheavy2.wav" id="3_4xsin"]
+[ext_resource type="AudioStream" uid="uid://cropfdgj7mt1i" path="res://assets/sounds/slender/staticmedium.wav" id="3_7qxq0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ddfkc"]
 size = Vector3(1, 2, 0.001)
@@ -15,7 +17,10 @@ billboard_keep_scale = true
 material = SubResource("StandardMaterial3D_4k8ev")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ifidp"]
-radius = 5.0
+radius = 10.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_miyym"]
+radius = 0.7
 
 [node name="Ted" type="Node3D" groups=["Ted"]]
 
@@ -46,7 +51,23 @@ collision_mask = 17
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/TedArea"]
 shape = SubResource("CylinderShape3D_ifidp")
 
+[node name="DeathArea" type="Area3D" parent="CharacterBody3D"]
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/DeathArea"]
+shape = SubResource("CylinderShape3D_miyym")
+
+[node name="StaticLoop" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
+stream = ExtResource("3_7qxq0")
+volume_db = -18.0
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
+stream = ExtResource("3_4xsin")
+volume_db = -30.0
+
 [connection signal="navigation_finished" from="CharacterBody3D/NavigationAgent3D" to="CharacterBody3D" method="_on_navigation_agent_3d_navigation_finished"]
 [connection signal="timeout" from="CharacterBody3D/WanderTimer" to="CharacterBody3D" method="_on_wander_timer_timeout"]
 [connection signal="body_entered" from="CharacterBody3D/TedArea" to="CharacterBody3D" method="_on_ted_area_body_entered"]
 [connection signal="body_exited" from="CharacterBody3D/TedArea" to="CharacterBody3D" method="_on_ted_area_body_exited"]
+[connection signal="body_entered" from="CharacterBody3D/DeathArea" to="CharacterBody3D" method="_on_death_area_body_entered"]
+[connection signal="finished" from="CharacterBody3D/DeathSound" to="CharacterBody3D" method="_on_death_sound_finished"]

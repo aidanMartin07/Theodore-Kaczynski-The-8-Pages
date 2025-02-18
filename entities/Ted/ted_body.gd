@@ -20,6 +20,10 @@ var next_node: Vector3
 var wandering: bool = false
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var death_sound: AudioStreamPlayer3D = $DeathSound
+@onready var static_loop: AudioStreamPlayer3D = $StaticLoop
+
+signal player_caught
 
 func _ready() -> void:
 	wandering = false
@@ -58,6 +62,7 @@ func make_path_to_player() -> void:
 
 func _on_ted_area_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("Player")):
+		emit_signal("player_spotted")
 		player_visible = true
 		print("player visible")
 
@@ -77,3 +82,13 @@ func _on_wander_timer_timeout() -> void:
 		return
 	else:
 		wandering = false
+
+
+func _on_death_area_body_entered(body: Node3D) -> void:
+	if(body.is_in_group("Player")):
+		death_sound.playing = true
+		emit_signal("player_caught")
+
+
+func _on_death_sound_finished() -> void:
+	static_loop.playing = true

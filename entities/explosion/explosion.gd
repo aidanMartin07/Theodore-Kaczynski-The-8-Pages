@@ -6,6 +6,8 @@ extends Node3D
 @onready var explosion_sound: AudioStreamPlayer3D = $ExplosionSound
 @onready var timer: Timer = $Timer
 
+#note: 5 explosions at once sounds good
+
 func _ready() -> void:
 	debris.emitting = true
 	fire.emitting = true

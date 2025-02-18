@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dse4h1p0mwepd"]
+[gd_scene load_steps=22 format=3 uid="uid://dse4h1p0mwepd"]
 
 [ext_resource type="Script" path="res://entities/explosion/explosion.gd" id="1_iqsyh"]
+[ext_resource type="AudioStream" uid="uid://dafi4i5osjivr" path="res://assets/sounds/explosion_sfx.wav" id="2_f6gve"]
 
 [sub_resource type="Curve" id="Curve_rsufq"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.714286, 0.989011), 0.0, 0.0, 0, 0, Vector2(1, 0.010989), 0.0, 0.0, 0, 0]
@@ -137,6 +138,14 @@ process_material = SubResource("ParticleProcessMaterial_37mjp")
 draw_pass_1 = SubResource("SphereMesh_fwnk2")
 
 [node name="ExplosionSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_f6gve")
+volume_db = -20.0
+autoplay = true
+
+[node name="ExplosionSound2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_f6gve")
+volume_db = -21.0
+autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

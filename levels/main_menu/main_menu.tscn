@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx0xttpfg0qgw"]
+[gd_scene load_steps=5 format=3 uid="uid://bx0xttpfg0qgw"]
 
 [ext_resource type="Texture2D" uid="uid://goy6lgusvxde" path="res://assets/images/ted_harvard.jpg" id="1_46nuc"]
 [ext_resource type="Script" path="res://levels/main_menu/main_menu.gd" id="1_pwj46"]
+[ext_resource type="AudioStream" uid="uid://xbhwdw8tl78a" path="res://assets/sounds/slender/Slender.ogg" id="3_itsoh"]
+[ext_resource type="PackedScene" uid="uid://c7e2l2w53d3hs" path="res://levels/options_menu/options_menu.tscn" id="4_rdlxi"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,43 +19,69 @@ position = Vector2(576, 400)
 scale = Vector2(3.40377, 3.40377)
 texture = ExtResource("1_46nuc")
 
-[node name="TitleLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 289.0
-offset_top = 115.0
-offset_right = 880.0
-offset_bottom = 191.0
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_itsoh")
+autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/bold_font_size = 35
 bbcode_enabled = true
 text = "[center][color=black][b]Theodore Kaczynski:
 The Eight Pages"
+fit_content = true
 
-[node name="StartButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 528.0
-offset_top = 288.0
-offset_right = 688.0
-offset_bottom = 335.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "Start"
 
-[node name="Options" type="Button" parent="."]
-layout_mode = 0
-offset_left = 528.0
-offset_top = 344.0
-offset_right = 688.0
-offset_bottom = 391.0
+[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "Options"
 
-[node name="Quit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 528.0
-offset_top = 400.0
-offset_right = 688.0
-offset_bottom = 448.0
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "Quit"
 
-[connection signal="button_up" from="StartButton" to="." method="_on_button_button_up"]
-[connection signal="button_up" from="Quit" to="." method="_on_quit_button_up"]
+[node name="OptionsMenu" parent="." instance=ExtResource("4_rdlxi")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_up"]

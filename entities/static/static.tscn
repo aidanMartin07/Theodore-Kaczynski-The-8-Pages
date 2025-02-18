@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://byg3xt1dxurux"]
+
+[ext_resource type="Script" path="res://entities/static/static.gd" id="1_2tg5b"]
+[ext_resource type="Texture2D" uid="uid://d1n4myihq7ril" path="res://assets/images/Ted_Kaczynski_2_(cropped).jpg" id="1_ol4h4"]
+[ext_resource type="Shader" path="res://entities/static/static_shader.gdshader" id="1_sc4ci"]
+[ext_resource type="Texture2D" uid="uid://jqvivmb1vw6" path="res://assets/images/tv_static_by_tbh_1138-d3jmbjq.png" id="2_vq4jr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ce450"]
+shader = ExtResource("1_sc4ci")
+shader_parameter/amount = 40.0
+shader_parameter/speed = 1.14
+shader_parameter/intensity = 0.48
+
+[node name="Static" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tg5b")
+
+[node name="Ted" type="Sprite2D" parent="."]
+position = Vector2(647, 385)
+scale = Vector2(2.4375, 0.836142)
+texture = ExtResource("1_ol4h4")
+
+[node name="Static" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ce450")
+position = Vector2(626, 353)
+scale = Vector2(2.73926, 3.01172)
+texture = ExtResource("2_vq4jr")
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -27.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Return to Menu"
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

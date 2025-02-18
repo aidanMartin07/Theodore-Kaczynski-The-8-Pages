@@ -48,7 +48,7 @@ shadow_mesh = SubResource("ArrayMesh_g3by7")
 [sub_resource type="BoxShape3D" id="BoxShape3D_5sid1"]
 size = Vector3(1, 2.90125, 3.16113)
 
-[node name="pipe" instance=ExtResource("1_1g5cd")]
+[node name="pipe" groups=["pipe"] instance=ExtResource("1_1g5cd")]
 script = ExtResource("2_08lc7")
 
 [node name="Cube" parent="." index="0"]

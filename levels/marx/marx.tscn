@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgntgxatj0xgy"]
+
+[ext_resource type="Script" path="res://levels/marx/marx.gd" id="1_abypi"]
+[ext_resource type="PackedScene" uid="uid://c3dhosfhqpf2c" path="res://assets/tiles/grass_large/grass_large.tscn" id="1_g8trk"]
+[ext_resource type="PackedScene" uid="uid://buusiovvsgfqf" path="res://entities/karl/karl_marx.tscn" id="2_yaymv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iyuib"]
+sky_top_color = Color(0.372923, 0.440933, 0.535552, 1)
+sky_horizon_color = Color(0.643231, 0.652483, 0.667138, 1)
+sky_energy_multiplier = 5.0
+ground_horizon_color = Color(0.643231, 0.652483, 0.667138, 1)
+
+[sub_resource type="Sky" id="Sky_uolec"]
+sky_material = SubResource("ProceduralSkyMaterial_iyuib")
+
+[sub_resource type="Environment" id="Environment_gjmn2"]
+background_mode = 2
+sky = SubResource("Sky_uolec")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Marx" type="Node3D" node_paths=PackedStringArray("marx", "player")]
+script = ExtResource("1_abypi")
+marx = NodePath("Karl_Marx")
+player = NodePath("Camera3D")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 1.75
+shadow_enabled = true
+
+[node name="Sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gjmn2")
+
+[node name="grass_large" parent="." instance=ExtResource("1_g8trk")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1, 0)
+
+[node name="Karl_Marx" parent="." instance=ExtResource("2_yaymv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -112.0
+offset_right = 91.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/Quit" to="." method="_on_quit_button_up"]

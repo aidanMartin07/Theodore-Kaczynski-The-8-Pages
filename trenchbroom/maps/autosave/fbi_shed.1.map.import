@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dlcqlu3jm3348"
+path="res://.godot/imported/fbi_shed.1.map-dd86a95b27ce3433d6a48866f17561c7.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/autosave/fbi_shed.1.map"
+dest_files=["res://.godot/imported/fbi_shed.1.map-dd86a95b27ce3433d6a48866f17561c7.tres"]
+
+[params]
+

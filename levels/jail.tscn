@@ -212,3 +212,9 @@ mesh = SubResource("ArrayMesh_vm4xv")
 
 [node name="entity_2_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_2_func_detail"]
 shape = SubResource("ConcavePolygonShape3D_8oted")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+light_color = Color(0.986752, 0.986752, 0.986752, 1)
+light_energy = 1.75
+omni_range = 3.4

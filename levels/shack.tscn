@@ -143,3 +143,9 @@ shape = SubResource("ConvexPolygonShape3D_l6b7e")
 
 [node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_ua5kb")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.38239, 0)
+light_color = Color(0.889298, 0.689789, 0.0603246, 1)
+light_energy = 0.75
+spot_angle = 75.94
