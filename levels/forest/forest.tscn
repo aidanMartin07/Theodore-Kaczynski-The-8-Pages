@@ -74,7 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 ted = NodePath("../../Ted/CharacterBody3D")
 
 [node name="Ted" parent="." instance=ExtResource("2_kanrw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.603, 1, -44.597)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.603, 1, -137.862)
 
 [node name="CharacterBody3D" parent="Ted" index="0" node_paths=PackedStringArray("player_node")]
 player_node = NodePath("../../Player/CharacterBody3D")

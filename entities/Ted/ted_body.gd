@@ -9,7 +9,7 @@ var player_visible: bool = false
 
 var speed: float = 2.0
 const wandering_speed: float = 2.0
-const chase_speed: float = 2.25
+const chase_speed: float = 2.05
 
 
 var node_min: Vector3 = Vector3(-76,0,-236)
@@ -22,6 +22,7 @@ var wandering: bool = false
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var death_sound: AudioStreamPlayer3D = $DeathSound
 @onready var static_loop: AudioStreamPlayer3D = $StaticLoop
+@onready var ted_area: Area3D = $TedArea
 
 signal player_caught
 
@@ -29,9 +30,10 @@ func _ready() -> void:
 	wandering = false
 
 func _physics_process(delta: float) -> void:
-	if(player_visible):
+	if(player_visible or ted_area.get_overlapping_areas().size() > 1):
 		make_path_to_player()
 		speed = chase_speed
+		#print(ted_area.get_overlapping_areas())
 	else:
 		wander()
 		speed = wandering_speed
@@ -56,21 +58,21 @@ func wander() -> void:
 
 func make_path_to_player() -> void: 
 	nav_agent.target_position = player_node.global_position
-	if(nav_agent.is_navigation_finished()):
-		print("at player")
+	#if(nav_agent.is_navigation_finished()):
+		#print("at player")
 
 
 func _on_ted_area_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("Player")):
 		emit_signal("player_spotted")
 		player_visible = true
-		print("player visible")
+		#print("player visible")
 
 
 func _on_ted_area_body_exited(body: Node3D) -> void:
 	if(body.is_in_group("Player")):
 		player_visible = false
-		print("player lost")
+		#print("player lost")
 
 
 func _on_navigation_agent_3d_navigation_finished() -> void:

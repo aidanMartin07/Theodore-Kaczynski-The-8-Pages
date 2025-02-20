@@ -62,10 +62,10 @@ var static_effect = preload("res://entities/static/static.tscn")
 @onready var pipe_timer: Timer = $"../PipeTimer"
 @onready var ground_position: Marker3D = $GroundPosition
 @onready var flashlight_click: AudioStreamPlayer3D = $CameraHolder/Camera3D/Flashlight/FlashlightClick
+@onready var player_area_shape: CollisionShape3D = $PlayerArea/CollisionShape3D
 
 func _ready():
 	sprint_bar.value = SPRINT_MAX
-	print(player.get_path())
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ted.player_caught.connect(caught)
 	var pipes = get_tree().get_nodes_in_group("pipe")
@@ -132,10 +132,18 @@ func _physics_process(delta):
 	
 	if (Input.is_action_pressed("shift") and can_sprint):
 		speed = SPRINT_SPEED
-		flashlight.rotation.x = lerp_angle(-0.7, 0.0, delta *10.0)
+		player_area_shape.shape.radius = lerp(float(player_area_shape.shape.radius),55.0,delta * 9.0)
+		#print(player_area_shape.shape.radius)
+		#print(player_area_shape.shape.radius)
+		#flashlight.rotation.x = lerp_angle(-0.7, 0.0, delta *10.0)
 	else:
 		speed = WALK_SPEED
-		flashlight.rotation.x = lerp_angle(-0.0, -0.7, delta* 10.0)
+		player_area_shape.shape.radius = 25
+		#print(player_area_shape.shape.radius)
+
+		#print(player_area_shape.shape.radius)
+
+		#flashlight.rotation.x = lerp_angle(-0.0, -0.7, delta* 10.0)
 	
 	
 	if(slowed ):

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://w5uoskywipvp"]
+
+[ext_resource type="PackedScene" uid="uid://b5m2g4g3rwh2v" path="res://assets/props/cardboard_box.glb" id="1_l6r5d"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5nx1e"]
+data = PackedVector3Array(-1, -1, 0, -1, 1, -1, -1, 1, 0, -1, -1, 0, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, 0, 1, 1, 1, 1, 1, 0, 1, -1, 0, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 0, 1, -1, 1, 1, -1, 0, -1, -1, 0, -1, -1, 1, 1, -1, 1, 1, 1, 0, -1, 1, 1, -1, 1, 0, 1, 1, 0, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 0, -1, 1, -1, 1, 1, -1, 1, 1, 0, -1, 1, 0, -1, -1, -1, 1, -1, 0, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, -1, 0, 1, -1, -1, 1, 1, 0, 1, 1, -1, 1, -1, -1, 1, -1, 0, 1, 1, 0, -1, -1, 1, -1, 1, 0, -1, 1, 1, -1, -1, 1, -1, -1, 0, -1, 1, 0)
+
+[node name="cardboard_box" instance=ExtResource("1_l6r5d")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_5nx1e")

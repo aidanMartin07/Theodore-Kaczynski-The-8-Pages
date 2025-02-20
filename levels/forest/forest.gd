@@ -31,7 +31,7 @@ func _ready() -> void:
 	PlayerManager.page_count = 0
 	PlayerManager.all_pages_collected.connect(next_level)
 	
-	animal_timer.start(randi_range(1,2))
+	animal_timer.start(randi_range(15,25))
 	
 	#system to change page texture depending on pages collected
 	#var page_interact = get_node("Player/CharacterBody3D/CameraHolder/Camera3D/InteractRayCast")
@@ -66,4 +66,4 @@ func _on_animal_timer_timeout() -> void:
 	animal_sound_player.stream = animal_sounds.pick_random()
 	animal_sound_player.volume_db = -30
 	animal_sound_player.playing = true
-	animal_timer.start(randi_range(1,2))
+	animal_timer.start(randi_range(10,20))

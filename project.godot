@@ -13,7 +13,7 @@ config_version=5
 config/name="Theodore Kaczynski and the Eight Pages"
 run/main_scene="res://levels/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/images/ted_256.png"
 
 [autoload]
 
@@ -36,6 +36,7 @@ page=""
 Player=""
 Ted=""
 pipe=""
+hotkey_button=""
 
 [gui]
 

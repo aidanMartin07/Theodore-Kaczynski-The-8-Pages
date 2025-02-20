@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://driipbfyluo7x"]
+
+[ext_resource type="Texture2D" uid="uid://d2anlwi1qbfaj" path="res://assets/textures/world/shelfitems.png" id="1_n0cxc"]
+
+[resource]
+albedo_texture = ExtResource("1_n0cxc")
+metallic_specular = 0.0
+texture_filter = 2
