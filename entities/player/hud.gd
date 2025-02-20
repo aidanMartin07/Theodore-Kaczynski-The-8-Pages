@@ -16,5 +16,5 @@ func _process(delta: float) -> void:
 		page_count.text = "Pages: 8"
 	else:
 		page_count.text = "Pages: " + str(PlayerManager.page_count)
-	coords.text = "position: " + str(body.global_position) + "\n" + str(Engine.get_frames_per_second())
+	#coords.text = "position: " + str(body.global_position) + "\n" + str(Engine.get_frames_per_second())
 	#+ "\n " + str(camera_3d.position.y)
