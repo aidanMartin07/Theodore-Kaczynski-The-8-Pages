@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://bibmidfwvcvvv"]
+[gd_scene load_steps=41 format=4 uid="uid://bibmidfwvcvvv"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_aabr8"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_65bic"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://0kb3rpnjt3va" path="res://assets/textures/world/plaster_64.tres" id="6_88yjm"]
 [ext_resource type="Material" uid="uid://dq738dde5cdbg" path="res://assets/textures/world/brick_64.tres" id="7_ef6jq"]
 [ext_resource type="Material" uid="uid://d30llv2le4wj3" path="res://assets/textures/world/glass.tres" id="8_1256g"]
+[ext_resource type="PackedScene" uid="uid://do06vmxr5p2d5" path="res://assets/props/vhs.glb" id="9_pmlpt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_n4d6w"]
 _surfaces = [{
@@ -302,3 +303,41 @@ shape = SubResource("ConcavePolygonShape3D_oc14m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 0)
 omni_range = 11.923
 omni_attenuation = 0.0
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="vhs" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.5, 0.7, -4)
+
+[node name="vhs2" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.5, 0.7, -6)
+
+[node name="vhs3" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.5, 0.7, -8)
+
+[node name="vhs4" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 0.7, -8)
+
+[node name="vhs5" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 0.7, -6)
+
+[node name="vhs6" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 0.7, -4)
+
+[node name="vhs7" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.5, 0.7, 8)
+
+[node name="vhs8" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.5, 0.7, 6)
+
+[node name="vhs9" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.5, 0.7, 4)
+
+[node name="vhs10" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 0.7, 4)
+
+[node name="vhs11" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 0.7, 6)
+
+[node name="vhs12" parent="Props" instance=ExtResource("9_pmlpt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 0.7, 8)

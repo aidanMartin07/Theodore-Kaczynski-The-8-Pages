@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://b88qkbwxk3um0"]
+[gd_scene load_steps=31 format=4 uid="uid://b88qkbwxk3um0"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_6pnlc"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_rnbkv"]
@@ -7,6 +7,9 @@
 [ext_resource type="Material" uid="uid://deqlscy2mcen4" path="res://assets/textures/world/wood_floor_64.tres" id="5_yvpuh"]
 [ext_resource type="Material" uid="uid://x3kkor0n8hcf" path="res://assets/textures/world/metal_64.tres" id="6_rjtjp"]
 [ext_resource type="Material" uid="uid://d30llv2le4wj3" path="res://assets/textures/world/glass.tres" id="7_14snq"]
+[ext_resource type="PackedScene" uid="uid://br1hqts00u56l" path="res://props/table.tscn" id="8_xck3b"]
+[ext_resource type="PackedScene" uid="uid://brjlnwbsuomo5" path="res://props/decor/computer.tscn" id="9_o7b3w"]
+[ext_resource type="PackedScene" uid="uid://cn5yd0i3w00vu" path="res://assets/props/server.glb" id="10_gxgtf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w6x8v"]
 _surfaces = [{
@@ -225,3 +228,20 @@ light_energy = 10.0
 spot_range = 2.148
 spot_attenuation = -1.34
 spot_angle = 45.31
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Table" parent="Props" instance=ExtResource("8_xck3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.855, 0.5, 4.85)
+
+[node name="computer" parent="Props" instance=ExtResource("9_o7b3w")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.097, 1.4, 5.218)
+
+[node name="server" parent="Props" instance=ExtResource("10_gxgtf")]
+transform = Transform3D(8.34742e-09, 0, -0.7, 0, 0.7, 0, 0.7, 0, 8.34742e-09, 5.01, 0.5, -4.8)
+
+[node name="server2" parent="Props" instance=ExtResource("10_gxgtf")]
+transform = Transform3D(8.34742e-09, 0, -0.7, 0, 0.7, 0, 0.7, 0, 8.34742e-09, 5.01, 0.5, -3.4)
+
+[node name="server3" parent="Props" instance=ExtResource("10_gxgtf")]
+transform = Transform3D(8.34742e-09, 0, -0.7, 0, 0.7, 0, 0.7, 0, 8.34742e-09, 5.01, 0.5, -2)

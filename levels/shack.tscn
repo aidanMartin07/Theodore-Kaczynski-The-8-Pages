@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://nfyi2an24n5i"]
+[gd_scene load_steps=31 format=4 uid="uid://nfyi2an24n5i"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_f4dwg"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_drdgd"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bkqbxawkxc2tq" path="res://props/decor/can_1.tscn" id="8_oydsp"]
 [ext_resource type="PackedScene" uid="uid://w5uoskywipvp" path="res://props/decor/cardboard_box.tscn" id="9_qwqph"]
 [ext_resource type="PackedScene" uid="uid://cw4dstq7ogwtd" path="res://props/decor/can_2.tscn" id="10_ro3f4"]
+[ext_resource type="PackedScene" uid="uid://br1hqts00u56l" path="res://props/table.tscn" id="11_tkvsy"]
+[ext_resource type="PackedScene" uid="uid://dbc8ev4bnmmyy" path="res://assets/props/package.glb" id="12_of6a7"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y0sb8"]
 _surfaces = [{
@@ -208,10 +210,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.6867
 transform = Transform3D(-0.388931, 0, 0.921267, 0, 1, 0, -0.921267, 0, -0.388931, 1.86884, 1.85, 2.3)
 
 [node name="cardboard_box" parent="Decor" instance=ExtResource("9_qwqph")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.133, 0.92, 2.561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.133, 0.92, 2.48772)
 
 [node name="cardboard_box2" parent="Decor" instance=ExtResource("9_qwqph")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.867, 0.92, 2.561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.867, 0.92, 2.488)
 
 [node name="cardboard_box3" parent="Decor" instance=ExtResource("9_qwqph")]
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 1.61498, 0.64, -4.043)
@@ -230,3 +232,9 @@ transform = Transform3D(-0.958562, 0, 0.284885, 0, 1, 0, -0.284885, 0, -0.958562
 
 [node name="can_5" parent="Decor" instance=ExtResource("10_ro3f4")]
 transform = Transform3D(-0.964571, 0, -0.263823, 0, 1, 0, 0.263823, 0, -0.964571, 1.17814, 2.04886, 2.44681)
+
+[node name="Table" parent="Decor" instance=ExtResource("11_tkvsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, -1.62, 0.5, -3.24221)
+
+[node name="package" parent="Decor" instance=ExtResource("12_of6a7")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -1.62766, 1.4, -2.84526)

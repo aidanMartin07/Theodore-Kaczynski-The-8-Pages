@@ -130,8 +130,8 @@ stretch_mode = 4
 [node name="Coords" type="RichTextLabel" parent="HUD"]
 offset_right = 334.0
 offset_bottom = 40.0
-text = "X:
-Y:"
+text = "
+"
 fit_content = true
 
 [node name="Static" parent="HUD" instance=ExtResource("9_yhqly")]
