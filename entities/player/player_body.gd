@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 
 const WALK_SPEED: float = 2.0 # default 0f 2.0
-const SPRINT_SPEED: float = 21.0 #default of 4.0
+const SPRINT_SPEED: float = 4.0 #default of 4.0
 const JUMP_VELOCITY:float = 4.5
 const SENSITIVITY:float = 0.0018
 
@@ -21,7 +21,7 @@ var speed: float = 0.0
 var slowed: bool = false
 var can_sprint: bool = true
 const SPRINT_MAX: int = 200
-var sprint_drain: int = 0 # default 45
+var sprint_drain: int = 45 # default 45
 var sprint_gain: int = 30 #30 to let it gain
 var sprinting: bool = false
 var moving: bool = false
